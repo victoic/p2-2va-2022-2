@@ -31,4 +31,14 @@ class FileWriter(File):
                 f.write(command)
                 return True
         except:
-            return False
+            return False    
+        
+if __name__ == '__main__':
+    file = FileReader('/Users/tiagomoraes/code/ufpe/p2/p2-2va-2022-2/_files', 'test.txt')
+    print(file.operate())
+
+    file = FileWriter('/Users/tiagomoraes/code/ufpe/p2/p2-2va-2022-2/_files', 'test.txt')
+    print(file.operate('Opaaaaa!'))
+
+    file = FileReader('/Users/tiagomoraes/code/ufpe/p2/p2-2va-2022-2/_files', 'test.txt')
+    print(file.operate())
