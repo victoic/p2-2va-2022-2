@@ -1,6 +1,6 @@
 class Cell():
-    def __init__(self, symbolValue):
-        self.symbol = symbolValue
+    def __init__(self, symbol):
+        self.symbol = symbol
         self.hidden = True
         self.shot = False
     
