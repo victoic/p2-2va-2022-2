@@ -25,10 +25,10 @@ class FileWriter(File):
     def __init__(self, path, filename):
         super().__init__(path, filename)
     
-    def operate(self):
+    def operate(self, command):
         try:
             with open(os.path.join(self.path, self.filename), 'w') as f:
-                f.write()
+                f.write(command)
                 return True
         except:
             return False
