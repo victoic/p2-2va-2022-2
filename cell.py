@@ -7,7 +7,6 @@ class Cell():
     def getSymbol():
         if self.hidden == True:
             return '?'
-        elif self.shot == True:
-            return 'X' 
-        else:
-            return self.symbol
+        if self.shot == True:
+            return 'X'         
+        return self.symbol
