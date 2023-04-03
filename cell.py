@@ -8,6 +8,6 @@ class Cell():
         if self.hidden == True:
             return '?'
         elif self.shot == True:
-            return 'X'
+            return 'X' 
         else:
             return self.symbol
