@@ -1,4 +1,4 @@
-import cell 
+from cell import Cell 
 
 class Board:
     # Singleton
