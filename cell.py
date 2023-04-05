@@ -10,3 +10,6 @@ class Cell():
         if self.shot == True:
             return 'X'         
         return self.symbol
+    
+    def setSymbol(self, symbol):
+        self.symbol = symbol
