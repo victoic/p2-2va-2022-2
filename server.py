@@ -4,7 +4,10 @@ class Server(Window):
     __instance = None
 
     def __init__(self):
-        self.__currentTurn = 0
+        self.__currentTurn = 1
+        self.__log_writer = FileWriter(os.path.join(dir, '../log'), 'log_server.txt')
+        self.__p1_writer = FileWriter(os.path.join(dir, '../log'), 'log_player1.txt')
+        self.__p2_writer = FileWriter(os.path.join(dir, '../log'), 'log_player2.txt')
         super().__init__()
 
     def __new__(cls):
@@ -13,7 +16,9 @@ class Server(Window):
         return cls.__instance
 
     def resetFiles(self):
-        pass
+        self.__log_writer.operate("", "w")
+        self.__p1_writer.operate("", "w")
+        self.__p2_writer.operate("", "w")
 
     def checkCheating(self):
         pass
