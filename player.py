@@ -6,8 +6,8 @@ class Player():
         self.board = board
         self.ships = ships
 
-    def shoot(letter: str, number: int) -> bool:
-        return self.board.shoot(string.ascii_uppercase.index(letter.upper())+1, number)
+    def shoot(row: int, column: str) -> bool:
+        return self.board.shoot(row, string.ascii_uppercase.index(column.upper())+1)
 
     def hasShip(self, pos: int[2]):
         for ship in self.ships:
