@@ -1,5 +1,9 @@
 import string
 
+from board import Board
+from ship import Ship
+
+
 class Player():
     def __init__(self, board: Board, ships: list(Ship)):
         self.board = board
