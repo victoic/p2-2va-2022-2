@@ -23,10 +23,10 @@ class Client(Window):
             print('Both players are already connected')
             exit()
 
-        self.player = Player(self.player_id)
+        self.board = Board(10)
+        self.player = Player(self.board, [])
 
         # Feito por Gustavo Henrique
-        self.board = Board(10)
 
         contador = 0
 
