@@ -72,7 +72,7 @@ class Client(Window):
 
             if tokens[0] != 'RESULT' or tokens[1] != str(self._getOtherPlayerId()):
                 value = tokens[4]
-                self.board.cells[int(tokens[2])][int(tokens[3])].symbol = value
+                self.board.board[int(tokens[2])][int(tokens[3])].symbol = value
             
     def writeAction(self, action):
         self.file_writer.operate(action)
