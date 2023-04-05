@@ -1,12 +1,13 @@
 import string
 
+
 class Player():
     def __init__(self, board: Board, ships: list(Ship)):
         self.board = board
         self.ships = ships
 
-    def shoot(letter: string, number: int):
-        return self.board.shoot(string.ascii_uppercase.index(letter)+1, number)
+    def shoot(letter: str, number: int) -> bool:
+        return self.board.shoot(string.ascii_uppercase.index(letter.upper())+1, number)
 
     def hasShip(self, pos: int[2]):
         for ship in self.ships:
