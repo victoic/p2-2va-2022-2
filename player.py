@@ -10,7 +10,7 @@ class Player():
         self.ships = ships
 
     def shoot(row: int, column: str) -> bool:
-        return self.board.shoot(row, string.ascii_uppercase.index(column.upper())+1)
+        return self.board.shoot([row, string.ascii_uppercase.index(column.upper())+1])
 
     def __shipsPositions(self, ship: Ship) -> list(int[2]):
         if ship.orientation == 0:  # Horizontal
