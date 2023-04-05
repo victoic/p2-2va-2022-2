@@ -3,7 +3,7 @@ import string
 class Player():
     def __init__(self, board: Board, ships: list(Ship)):
         self.board = board
-        self.ships = []
+        self.ships = ships
 
     def shoot(letter: string, number: int):
         return self.board.shoot(string.ascii_uppercase.index(letter)+1, number)
