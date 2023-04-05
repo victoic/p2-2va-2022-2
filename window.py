@@ -14,4 +14,4 @@ class Window(ABC):
             return True
         
         return False
-        
+    #Feito por Tiago
