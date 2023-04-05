@@ -1,17 +1,13 @@
 import string
 
+
 class Player():
-    def __init__(self, id: int, board: Board, ships: list(Ship)):
-        self.id = id
+    def __init__(self, board: Board, ships: list(Ship)):
         self.board = board
         self.ships = []
 
-    def shoot(letter: int, number: int):
-        coord = input("Escreva a letra e o número (coordenada) correspondente à posição que você quer atacar: ")
-        letter_number = coord.split(" ")
-        letter = letter_number[0].upper()
-        number = int(letter_number[1])
-        return self.board.shoot(ord(letter)-64, number)
+    def shoot(letter: str, number: int) -> bool:
+        return self.board.shoot(string.ascii_uppercase.index(letter.upper())+1, number)
 
     def hasShip(self, pos: int[2]):
         for ship in self.ships:
