@@ -1,3 +1,5 @@
+import cell 
+
 class Board:
     # Singleton
     _instance = None
@@ -27,3 +29,34 @@ class Board:
                 symbol = cell.getSymbol()
                 print(symbol, end=' ')
             print()
+
+    def reveal(self, pos):
+        row, col = pos
+        cell = self.board[row - 1][col + self.size - 1]
+        if not cell.hidden: return "Already revealed"
+        cell.hidden = False
+
+    def shoot(self, pos):
+        row, col = pos
+        cell = self.board[row - 1][col - 1]
+        if cell.shot: return "Already shot"
+        cell.shot = True
+
+
+    def placeShip(self, size, pos, orientation, playerId):
+        row, col = pos
+        if playerId == 1: col += self.size
+        for i in range(size):
+            if orientation == 0: cell = self.board[row][col + i]
+            elif orientation == 1: cell = self.board[row + i][col]
+            cell.symbol = "="
+
+if __name__ == "__main__":
+    board = Board(10)
+    board.placeShip(3, (0, 0), 0, 0)
+    board.placeShip(3, (0, 0), 1, 1)
+    board.reveal((1, 1))
+    board.shoot((1, 1))
+    board.shoot((1, 2))
+    board.shoot((1, 3))
+    board.displayBoard()
