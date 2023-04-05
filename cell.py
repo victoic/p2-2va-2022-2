@@ -1,6 +1,6 @@
 class Cell():
     def __init__(self):
-        self.symbol = '~'
+        self.symbol = "˜"
         self.hidden = True
         self.shot = False
     

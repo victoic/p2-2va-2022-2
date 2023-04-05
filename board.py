@@ -14,21 +14,38 @@ class Board:
             return Exception("Board already exists")
 
     
-    def displayBoard(self):
+    def displayBoard(self, playerId = 0):
         letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         print('  ', end='')
         for i in range(self.size): print(' ' + letters[i], end='')
         print('   ', end='')
         for i in range(self.size): print(' ' + letters[i], end='')
         print()
-        for i in range(self.size):
-            print(str(i + 1).rjust(2) + ' ', end='')
-            for j in range(2 * self.size):
-                if j == self.size: print('   ', end='')
-                cell = self.board[i][j]
-                symbol = cell.getSymbol()
-                print(symbol, end=' ')
-            print()
+        if playerId == 0:
+            for i in range(self.size):
+                print(str(i + 1).rjust(2) + ' ', end='')
+                for j in range(2 * self.size):
+                    if j == self.size: print('   ', end='')
+                    cell = self.board[i][j]
+                    symbol = cell.getSymbol()
+                    print(symbol, end=' ')
+                print()
+                
+        elif playerId == 1:
+            for i in range(self.size):
+                print(str(i + 1).rjust(2) + ' ', end='')
+                for j in range(self.size, 2 * self.size):
+                    if j == 2 * self.size - 1: print('   ', end='')
+                    cell = self.board[i][j]
+                    symbol = cell.getSymbol()
+                    print(symbol, end=' ')
+
+                for k in range(self.size - 1):
+                    if k == self.size: print('   ', end='')
+                    cell = self.board[i][j]
+                    symbol = cell.getSymbol()
+                    print(symbol, end=' ')
+                print()
 
     def reveal(self, pos):
         row, col = pos
@@ -59,4 +76,4 @@ if __name__ == "__main__":
     board.shoot((1, 1))
     board.shoot((1, 2))
     board.shoot((1, 3))
-    board.displayBoard()
+    board.displayBoard(1)
