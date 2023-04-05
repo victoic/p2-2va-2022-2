@@ -1,6 +1,8 @@
 from window import Window
 from file import FileReader, FileWriter
 import os
+from board import Board
+from player import Player
 
 dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -21,11 +23,22 @@ class Client(Window):
             print('Both players are already connected')
             exit()
 
-        # self.player = Player(self.player_id)
-        # self.board = Board()
+        self.player = Player(self.player_id)
 
-        # TODO: Adicionar a solicitação para receber as posições dos navios
-    
+        # Feito por Gustavo Henrique
+        self.board = Board(10)
+
+        contador = 0
+
+        while contador != 10:
+            size = int(input("insira o tamanho do navio "))
+            posicao = [int(input("posicao x")), int(input("posicao y"))]
+            orientacao = int(input("digite a orientacao 0 ( horizontal) 1 (vertical)"))
+            self.board.placeShip(size, posicao, orientacao,self.player_id)
+            contador += 1
+
+        self.board.displayBoard()
+
     def _getLastLineTokens(self):
         lines = self.history.splitlines()
         last_line = lines[-1]
