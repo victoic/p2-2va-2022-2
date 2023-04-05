@@ -1,10 +1,10 @@
 class Cell():
-    def __init__(self, symbol):
-        self.symbol = symbol
+    def __init__(self):
+        self.symbol = "˜"
         self.hidden = True
         self.shot = False
     
-    def getSymbol():
+    def getSymbol(self):
         if self.hidden == True:
             return '?'
         if self.shot == True:
